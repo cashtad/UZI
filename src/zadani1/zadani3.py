@@ -1,5 +1,6 @@
 # Autor: Leonid Malakhov
 # Dne: 17.10.2024
+# ZADANI 3
 # Program dostane na vstupu pozdravy a odpoví na ně pozdravem v českém jazyce.
 
 def respond_to_greeting():
