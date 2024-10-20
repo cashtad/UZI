@@ -1,3 +1,17 @@
+# Autor: Leonid Malakhov
+# Tento program je jednoduchý pravidlově orientovaný systém pro návrh osvětlení.
+# Uživatel může zadat typ místnosti (obytný prostor, kancelář, chata), plochu místnosti,
+# zda má místnost přirozené osvětlení, a preferovanou barevnou teplotu.
+# Program vypočítá doporučenou úroveň osvětlení a počet potřebných svítidel na základě těchto informací.
+# Cílem programu je usnadnit návrh osvětlení pro různé typy prostorů.
+
+# Programová instrukce pro uživatele:
+# 1. Zadejte typ místnosti (např. "obytný prostor", "kancelář", "chata").
+# 2. Zadejte plochu místnosti v m².
+# 3. Odpovězte, zda místnost má přirozené osvětlení (ano/ne).
+# 4. Zadejte preferovanou barevnou teplotu (např. "teplá", "neutrální", "studená").
+# Program poté poskytne doporučení ohledně osvětlení a vypočítá počet potřebných světel.
+
 class LightingSystem:
     def __init__(self):
         self.facts = {}
@@ -68,14 +82,24 @@ def calculate_light_count(facts):
     facts["light_count"] = int(round(light_count))  # Zaokrouhlení počtu světel
     print(f"Požadovaný počet světel: {facts['light_count']}")
 
+# Hlavní programová část, kde se zadají vstupní data uživatelem
+print("Vítejte v programu pro návrh osvětlení.")
+print("Postupujte podle instrukcí a zadejte požadované informace.\n")
+
+# Uživatelský vstup
+room_type = input("Zadejte typ místnosti (obytný prostor, kancelář, chata): ").strip().lower()
+area = float(input("Zadejte plochu místnosti v m²: "))
+natural_light = input("Má místnost přirozené osvětlení? (ano/ne): ").strip().lower()
+preferred_temp = input("Zadejte preferovanou barevnou teplotu (teplá, neutrální, studená): ").strip().lower()
+
 # Vytvoření systému
 lighting_system = LightingSystem()
 
-# Přidání faktů pro příklad (tyto hodnoty můžete měnit podle potřeby)
-lighting_system.add_fact("type", "obytný prostor")
-lighting_system.add_fact("area", 25)  # Plocha v m²
-lighting_system.add_fact("natural_light", "ano")  # Místnost má přirozené osvětlení
-lighting_system.add_fact("preferred_temp", "teplá")  # Preferovaná barevná teplota
+# Přidání faktů z uživatelského vstupu
+lighting_system.add_fact("type", room_type)
+lighting_system.add_fact("area", area)  # Plocha v m²
+lighting_system.add_fact("natural_light", natural_light)  # Přirozené osvětlení (ano/ne)
+lighting_system.add_fact("preferred_temp", preferred_temp)  # Preferovaná barevná teplota
 
 # Přidání pravidel pro různé typy místností
 lighting_system.add_rule(is_living_room, recommend_living_room_lighting)
@@ -89,4 +113,4 @@ lighting_system.infer()
 calculate_light_count(lighting_system.facts)
 
 # Výpis všech faktů
-print("Fakta systému osvětlení:", lighting_system.facts)
+print("\nFakta systému osvětlení:", lighting_system.facts)
