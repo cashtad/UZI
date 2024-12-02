@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Česká spořitelna",
+    "interest_rate_basic": "1,25",
+    "interest_rate_bonus": "4,3",
+    "min_deposit": 0,
+    "max_deposit": 400000,
+    "account_fee": 100,
+    "bonus_terms": {
+      "investment_commitment_monthly": 2000
+    }
+  },
+  {
+    "name": "Raiffeisenbank",
+    "interest_rate_basic": "0,1",
+    "interest_rate_bonus": "4,2",
+    "min_deposit": 0,
+    "max_deposit": null,
+    "account_fee": 0,
+    "bonus_terms": {
+      "card_transactions": 3,
+      "max_deposit": 500000
+    }
+  },
+  {
+    "name": "mBank",
+    "interest_rate_basic": "1,5",
+    "interest_rate_bonus": "3,75",
+    "min_deposit": 0,
+    "max_deposit": null,
+    "account_fee": 0,
+    "bonus_terms": {
+      "card_transactions": 5,
+      "min_deposit": 100000
+    }
+  }
+]
