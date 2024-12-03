@@ -5,26 +5,26 @@ from decision_maker import choose_best_bank
 from data_loader import load_bank_data
 
 def main():
-    # Загружаем данные о банках
+    # Načtení dat o bankách
     banks = load_bank_data("data/banks.json")
 
-    # Получаем ввод от пользователя
+    # Získání vstupu od uživatele
     deposit, transactions, investment = get_user_input()
 
-    # Фильтруем банки по базовым условиям
+    # Filtrování bank podle základních podmínek
     eligible_banks = filter_banks_by_basic_conditions(banks, deposit)
 
-    # Если нет подходящих банков
+    # Pokud neexistují žádné vhodné banky
     if not eligible_banks:
-        print("Нет банков, подходящих для ваших условий.")
+        print("Neexistují žádné banky, které by vyhovovaly vašim podmínkám.")
         return
 
-    # Выбираем лучший банк
+    # Výběr nejlepší banky
     best_bank, best_rate, reason = choose_best_bank(eligible_banks, deposit, transactions, investment)
 
     explanation = get_explanation(best_bank, best_rate, reason)
-    # Выводим результаты
-    print("\nЛучший выбор:")
+    # Zobrazení výsledků
+    print("\nNejlepší volba:")
     print(explanation)
 
 if __name__ == "__main__":

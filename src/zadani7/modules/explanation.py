@@ -1,11 +1,11 @@
 def get_explanation(bank, rate, reason):
     explanation = (
-        f"Выбран банк: {bank['name']}.\n"
-        f"Причина: {reason}\n"
-        f"Процентная ставка: {rate}%\n"
-        f"Дополнительные данные:\n"
-        f"- Минимальный депозит: {bank['min_deposit']} CZK\n"
-        f"- Максимальный депозит: {str(bank['max_deposit']) + " CZK" or 'Неограничен'} \n"
-        f"- Плата за ведение счета: {bank['account_fee']} CZK/месяц\n"
+        f"Vybraná banka: {bank['name']}.\n"
+        f"Důvod: {reason}\n"
+        f"Úroková sazba: {rate}%\n"
+        f"Další informace:\n"
+        f"- Minimální vklad: {bank['min_deposit']} CZK\n"
+        f"- Maximální vklad: {str(bank['max_deposit']) + ' CZK' if bank['max_deposit'] else 'Neomezeno'} \n"
+        f"- Poplatek za vedení účtu: {bank['account_fee']} CZK/měsíc\n"
     )
     return explanation

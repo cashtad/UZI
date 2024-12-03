@@ -1,5 +1,5 @@
 def get_user_input():
-    deposit = float(input("Введите сумму депозита (CZK): "))
-    transactions = int(input("Введите количество транзакций по карте в месяц: "))
-    investment = float(input("Готовы ли вы инвестировать ежемесячно? Если да, укажите сумму (CZK), иначе 0: "))
+    deposit = float(input("Zadejte částku vkladu (CZK): "))
+    transactions = int(input("Zadejte počet transakcí kartou za měsíc: "))
+    investment = float(input("Jste ochotni měsíčně investovat? Pokud ano, zadejte částku (CZK), jinak 0: "))
     return deposit, transactions, investment

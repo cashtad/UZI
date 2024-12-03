@@ -13,14 +13,13 @@ def choose_best_bank(banks, deposit, transactions, investment):
 
         if check_bonus_conditions(bank, deposit, transactions, investment):
             rate = bonus_rate
-            reason = "Бонусная ставка доступна благодаря выполнению всех условий."
+            reason = "Bonusová sazba je dostupná díky splnění všech podmínek."
         else:
             rate = basic_rate
-            reason = "Бонусная ставка недоступна; учитывается базовая ставка."
+            reason = "Bonusová sazba není dostupná; uvažuje se základní sazba."
 
         if rate > best_rate:
             best_bank = bank
             best_rate = rate
-
 
     return best_bank, best_rate, reason
