@@ -1,6 +1,6 @@
 from src.zadani7.modules.explanation import get_explanation
 from user_input import get_user_input
-from bank_filter import filter_banks_by_basic_conditions
+from bank_filter import filter_banks_by_basic_conditions, filter_banks_by_city
 from decision_maker import choose_best_bank
 from data_loader import load_bank_data
 
@@ -9,10 +9,12 @@ def main():
     banks = load_bank_data("data/banks.json")
 
     # Získání vstupu od uživatele
-    deposit, transactions, investment = get_user_input()
+    deposit, transactions, investment, city_info = get_user_input()
 
     # Filtrování bank podle základních podmínek
-    eligible_banks = filter_banks_by_basic_conditions(banks, deposit)
+    eligible_banks = filter_banks_by_city(banks, city_info)
+    eligible_banks = filter_banks_by_basic_conditions(eligible_banks, deposit)
+
 
     # Pokud neexistují žádné vhodné banky
     if not eligible_banks:
