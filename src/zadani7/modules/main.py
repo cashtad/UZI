@@ -24,7 +24,7 @@ def main():
     # Výběr nejlepší banky
     best_bank, best_rate, reason = choose_best_bank(eligible_banks, deposit, transactions, investment)
 
-    explanation = get_explanation(best_bank, best_rate, reason)
+    explanation = get_explanation(best_bank, best_rate, reason, city_info)
     # Zobrazení výsledků
     print("\nNejlepší volba:")
     print(explanation)
