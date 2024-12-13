@@ -1,0 +1,52 @@
+{
+    "adresa": "Machova 2434/20",
+    "plocha_celkova": 130,
+    "mistnosti": [
+        {
+            "nazev": "Obývací pokoj",
+            "plocha": 50,
+            "nabytek": "pohovka, křeslo1, křeslo2, televize, konferenční stolek, stojací lampa, skříňka, regál",
+            "okna": [
+                {"nazev": "Okno 1", "strana": "západ", "vyska": 2.5, "sirka": 3},
+                {"nazev": "Okno 2", "strana": "jih", "vyska": 2.5, "sirka": 3}
+            ],
+            "dvere": [
+                {"nazev": "Dveře 1", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Obývací pokoj", "do_mistnosti": "Chodba"},
+                {"nazev": "Dveře 2", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Obývací pokoj", "do_mistnosti": "Chodba"}
+            ]
+        },
+        {
+            "nazev": "Chodba",
+            "plocha": 15,
+            "nabytek": "věšák, botník",
+            "okna": [],
+            "dvere": [
+                {"nazev": "Dveře 1", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Chodba", "do_mistnosti": "Obývací pokoj"},
+                {"nazev": "Dveře 2", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Chodba", "do_mistnosti": "Ložnice"},
+                {"nazev": "Dveře 3", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Chodba", "do_mistnosti": "Kuchyň"}
+            ]
+        },
+        {
+            "nazev": "Ložnice",
+            "plocha": 30,
+            "nabytek": "postel, noční stolek, šatní skříň",
+            "okna": [
+                {"nazev": "Okno 1", "strana": "sever", "vyska": 1.8, "sirka": 2}
+            ],
+            "dvere": [
+                {"nazev": "Dveře 2", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Ložnice", "do_mistnosti": "Chodba"}
+            ]
+        },
+        {
+            "nazev": "Kuchyň",
+            "plocha": 35,
+            "nabytek": "jídelní stůl, židle, lednice, sporák",
+            "okna": [
+                {"nazev": "Okno 1", "strana": "východ", "vyska": 1.5, "sirka": 2}
+            ],
+            "dvere": [
+                {"nazev": "Dveře 2", "vyska": 2, "sirka": 0.8, "z_mistnosti": "Kuchyň", "do_mistnosti": "Chodba"}
+            ]
+        }
+    ]
+}
