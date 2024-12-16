@@ -1,0 +1,1 @@
+Program nacita data pouze ze souboru byt.json. Spusteni pomoci main.py

@@ -1,6 +1,4 @@
 def get_explanation(bank, rate, reason, city_info):
-
-
     explanation = (
         f"Vybraná banka: {bank['name']}.\n"
         f"Důvod: {reason}\n"

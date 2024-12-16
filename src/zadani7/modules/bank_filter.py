@@ -20,3 +20,9 @@ def filter_banks_by_city(banks, city_info):
             filtered_banks.append(bank)
 
     return filtered_banks
+
+
+def filter_banks(banks, deposit, city_info):
+    filtered_banks = filter_banks_by_basic_conditions(banks, deposit)
+    filtered_banks = (filter_banks_by_city(filtered_banks, city_info))
+    return filtered_banks

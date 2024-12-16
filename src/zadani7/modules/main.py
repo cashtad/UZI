@@ -1,6 +1,6 @@
-from src.zadani7.modules.explanation import get_explanation
+from bank_filter import filter_banks
+from explanation import get_explanation
 from user_input import get_user_input
-from bank_filter import filter_banks_by_basic_conditions, filter_banks_by_city
 from decision_maker import choose_best_bank
 from data_loader import load_bank_data
 
@@ -12,8 +12,7 @@ def main():
     deposit, transactions, investment, city_info = get_user_input()
 
     # Filtrování bank podle základních podmínek
-    eligible_banks = filter_banks_by_city(banks, city_info)
-    eligible_banks = filter_banks_by_basic_conditions(eligible_banks, deposit)
+    eligible_banks = filter_banks(banks, deposit, city_info)
 
 
     # Pokud neexistují žádné vhodné banky
@@ -28,6 +27,7 @@ def main():
     # Zobrazení výsledků
     print("\nNejlepší volba:")
     print(explanation)
+    input("EXIT")
 
 if __name__ == "__main__":
     main()
