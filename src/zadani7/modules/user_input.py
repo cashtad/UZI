@@ -1,4 +1,17 @@
+# Modul: user_input.py
+# Úloha: Znalostní systém pro výběr nejlepší banky pro spořicí účet
+# Autor: Leonid Malakhov
+# E-mail: malakhov@students.zcu.cz
+# Datum: 01.12.2024
+
+# Tento modul se stará o komunikaci s uživatelem a získání vstupních údajů pro rozhodování.
+
+
 def get_user_input():
+    """
+        Funkce získává vstupní údaje od uživatele pro výběr nejlepší banky.
+        :return: Částka vkladu, počet transakcí, měsíční investice a informace o městě pro pobočku
+        """
     deposit = 0
     while True:
         try:
@@ -23,7 +36,8 @@ def get_user_input():
             print("Nesprávný vstup. Zadejte číslo!")
 
     city_info = None
-    has_branch = input("Je pro vás důležité mít pobočku banky ve vašem nebo nejbližším k vám městě? (ano/ne): ").strip().lower()
+    has_branch = input(
+        "Je pro vás důležité mít pobočku banky ve vašem nebo nejbližším k vám městě? (ano/ne): ").strip().lower()
     if has_branch == "ano":
         city = input("Zadejte název vašeho města: ")
         nearest_large_city = input("Jaké je nejbližší velké město? ")
