@@ -23,7 +23,7 @@ def main():
         :return: Žádné
         """
     # Načtení dat o bankách
-    banks = load_bank_data("data/banks.json")
+    banks = load_bank_data("../data/banks.json")
 
     # Získání vstupu od uživatele
     deposit, transactions, investment, city_info = get_user_input()
