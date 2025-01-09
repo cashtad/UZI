@@ -1,8 +1,9 @@
-from bank_filter import filter_banks
-from explanation import get_explanation
-from user_input import get_user_input
-from decision_maker import choose_best_bank
-from data_loader import load_bank_data
+import bank_filter
+import explanation
+import output_utils
+import user_input
+import decision_maker
+import data_loader
 
 
 # Modul: main.py
@@ -22,28 +23,29 @@ def main():
         filtrování bank, rozhodování o nejlepší bance a zobrazení výsledků.
         :return: Žádné
         """
-    # Načtení dat o bankách
-    banks = load_bank_data("../data/banks.json")
+    while True:
+        output_utils.print_deviding_line()
 
-    # Získání vstupu od uživatele
-    deposit, transactions, investment, city_info = get_user_input()
+        # Načtení dat o bankách
+        banks = data_loader.load_bank_data("../data/banks.json")
 
-    # Filtrování bank podle základních podmínek
-    eligible_banks = filter_banks(banks, deposit, city_info)
+        # Získání vstupu od uživatele
+        deposit, transactions, investment, city_info = user_input.get_complete_user_input()
 
-    # Pokud neexistují žádné vhodné banky
-    if not eligible_banks:
-        print("Neexistují žádné banky, které by vyhovovaly vašim podmínkám.")
-        return
+        # Filtrování bank podle základních podmínek
+        eligible_banks = bank_filter.filter_banks(banks, deposit, city_info)
 
-    # Výběr nejlepší banky
-    best_bank, best_rate, reason = choose_best_bank(eligible_banks, deposit, transactions, investment)
+        # Výběr nejlepší banky
+        best_bank, best_rate, reason = decision_maker.choose_best_bank(eligible_banks, deposit, transactions, investment)
 
-    explanation = get_explanation(best_bank, best_rate, reason, city_info)
-    # Zobrazení výsledků
-    print("\nNejlepší volba:")
-    print(explanation)
-    input("EXIT")
+        explanation_text = explanation.get_explanation(best_bank, best_rate, reason, city_info)
+
+        # Zobrazení výsledků
+        output_utils.print_result(explanation_text)
+
+        command = user_input.get_start_again_input()
+        if command.lower() == "exit":
+            break
 
 
 if __name__ == "__main__":

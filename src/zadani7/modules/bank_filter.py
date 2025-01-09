@@ -49,5 +49,5 @@ def filter_banks(banks, deposit, city_info):
        :return: Seznam bank, které splňují všechny podmínky
        """
     filtered_banks = filter_banks_by_basic_conditions(banks, deposit)
-    filtered_banks = (filter_banks_by_city(filtered_banks, city_info))
+    filtered_banks = filter_banks_by_city(filtered_banks, city_info)
     return filtered_banks

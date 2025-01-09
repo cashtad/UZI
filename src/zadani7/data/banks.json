@@ -4,10 +4,11 @@
     "interest_rate_basic": "1,25",
     "interest_rate_bonus": "4,3",
     "min_deposit": 0,
-    "max_deposit": 400000,
+    "max_deposit": null,
     "account_fee": 100,
     "bonus_terms": {
-      "investment_commitment_monthly": 2000
+      "investment_commitment_monthly": 2000,
+      "max_deposit": 400000
     },
     "branches": {
       "Liberec": "Felberova 12/9, 46001",
