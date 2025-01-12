@@ -1,4 +1,4 @@
-def print_deviding_line():
+def print_dividing_line():
     print("\n\n---------------------------------")
 
 def print_result(explanation):

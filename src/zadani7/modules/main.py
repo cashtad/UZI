@@ -24,7 +24,7 @@ def main():
         :return: Žádné
         """
     while True:
-        output_utils.print_deviding_line()
+        output_utils.print_dividing_line()
 
         # Načtení dat o bankách
         banks = data_loader.load_bank_data("../data/banks.json")
