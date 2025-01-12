@@ -28,8 +28,9 @@ def get_explanation(bank, rate, reason, city_info):
             f"- Poplatek za vedení účtu: {bank['account_fee']} CZK/měsíc\n"
         )
         if city_info:
-            if city_info[0]:
-                explanation += f"- Nejbližší pobočka banky ve vašem městě: {bank['branches']}\n"
-            else:
-                explanation += f"- Nejbližší pobočka banky v nejbližším městě: {city_info[1]}\n"
+            try:
+                explanation += f"- Nejbližší pobočka banky ve vašem městě: {bank['branches'][city_info[0]]}\n"
+            except KeyError:
+                explanation += f"- Nejbližší pobočka banky v nejbližším městě: {bank['branches'][city_info[1]]}\n"
+
     return explanation
