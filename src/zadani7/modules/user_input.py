@@ -17,13 +17,21 @@ def get_complete_user_input():
     while True:
         try:
             deposit = float(input("Zadejte částku vkladu (CZK): "))
-            break
+            if deposit > 0:
+                break
+            else:
+                print("Nesprávný vstup. Zadejte číslo > 0!")
+
         except ValueError:
             print("Nesprávný vstup. Zadejte číslo!")
     while True:
         try:
             transactions = int(input("Zadejte počet transakcí kartou za měsíc: "))
-            break
+            if transactions >= 0:
+                break
+            else:
+                print("Nesprávný vstup. Zadejte číslo >= 0!")
+
         except ValueError:
             print("Nesprávný vstup. Zadejte číslo!")
 

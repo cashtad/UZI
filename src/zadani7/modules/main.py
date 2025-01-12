@@ -41,7 +41,7 @@ def main():
         explanation_text = explanation.get_explanation(best_bank, best_rate, reason, city_info)
 
         # Zobrazení výsledků
-        output_utils.print_result(explanation_text)
+        output_utils.print_result(best_bank, explanation_text)
 
         command = user_input.get_start_again_input()
         if command.lower() == "exit":

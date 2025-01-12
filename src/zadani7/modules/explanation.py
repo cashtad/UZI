@@ -14,23 +14,22 @@ def get_explanation(bank, rate, reason, city_info):
         :param city_info: Informace o požadovaném městě pro pobočku banky
         :return: Vysvětlení, které bude zobrazeno uživateli, obsahující informace o bance, sazbě a pobočkách
         """
+    if not bank:
+        return "Banka nebyla nalezena."
+    explanation = (
+        f"Důvod: {reason}\n"
+        f"Úroková sazba: {rate}%\n"
+        f"Další informace:\n"
+        f"- Minimální vklad: {bank['min_deposit']} CZK\n"
+        f"- Maximální vklad: {str(bank['max_deposit']) + ' CZK' if bank['max_deposit'] else 'Neomezeno'} \n"
+        f"- Poplatek za vedení účtu: {bank['account_fee']} CZK/měsíc\n"
+    )
 
-    if bank is None:
-        explanation = "Neexistují žádné banky, které by vyhovovaly vašim podmínkám"
-    else:
-        explanation = (
-            f"\nVybraná banka: {bank['name']}.\n"
-            f"Důvod: {reason}\n"
-            f"Úroková sazba: {rate}%\n"
-            f"Další informace:\n"
-            f"- Minimální vklad: {bank['min_deposit']} CZK\n"
-            f"- Maximální vklad: {str(bank['max_deposit']) + ' CZK' if bank['max_deposit'] else 'Neomezeno'} \n"
-            f"- Poplatek za vedení účtu: {bank['account_fee']} CZK/měsíc\n"
-        )
-        if city_info:
-            try:
-                explanation += f"- Nejbližší pobočka banky ve vašem městě: {bank['branches'][city_info[0]]}\n"
-            except KeyError:
-                explanation += f"- Nejbližší pobočka banky v nejbližším městě: {bank['branches'][city_info[1]]}\n"
+
+    if city_info:
+        try:
+            explanation += f"- Nejbližší pobočka banky ve vašem městě: {bank['branches'][city_info[0]]}\n"
+        except KeyError:
+            explanation += f"- Nejbližší pobočka banky v nejbližším městě: {bank['branches'][city_info[1]]}\n"
 
     return explanation
