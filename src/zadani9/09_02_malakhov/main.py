@@ -1,4 +1,9 @@
-import knowledge_base
+# Modul: main.py
+# Úloha: Production System
+# Autor: Leonid Malakhov
+# E-mail: malakhov@students.zcu.cz
+# Datum: 14.01.2025
+
 import explanation
 import inference
 
