@@ -1,9 +1,37 @@
-# explanation.py
+# Modul: explanation.py
+# Úloha: Einstein's Riddle
+# Autor: Leonid Malakhov
+# E-mail: malakhov@students.zcu.cz
+# Datum: 14.01.2025
 
+"""
+@file explanation.py
+@brief Provides utility functions for presenting and explaining solutions to Einstein's Riddle.
+
+This module includes:
+- An introduction to Einstein's Riddle and its rules.
+- Functions for formatting and displaying solutions to the puzzle in a tabular format.
+- Detailed explanations of the clues and constraints of the riddle.
+
+@details The program focuses on solving the logic-based Einstein's Riddle, which involves determining the arrangement
+of five houses, each uniquely associated with attributes such as nationality, house color, beverage, pet, and cigarette brand.
+
+Functions:
+- print_intro: Displays the introduction and rules of the riddle.
+- explain_solutions: Formats and prints the solutions in a table format, highlighting the houses with specific attributes.
+"""
 from prettytable import PrettyTable
 
 
 def print_intro():
+    """
+    @brief Prints an introduction to Einstein's Riddle, including rules and clues.
+
+    @details This function provides the user with the rules and constraints of the puzzle,
+    as well as a detailed list of clues. The riddle challenges the user to deduce:
+    - Which house belongs to which nationality.
+    - What each person drinks, smokes, and keeps as a pet.
+    """
     intro = """Welcome to the Einstein's Riddle!
 The goal of this logic puzzle is to determine the layout of five houses in a row, each with unique attributes
 associated with their occupant's nationality, house color, drink, pet, and cigarette brand.
@@ -44,23 +72,35 @@ The objective is to use these constraints to solve the riddle:
 
 
 def explain_solutions(solutions):
-    """Формирует вывод результатов в формате таблиц."""
+    """
+    @brief Formats and displays solutions to Einstein's Riddle in a tabular format.
+
+    @param solutions A list of dictionaries representing the solutions to the riddle.
+    Each dictionary in the list corresponds to a house's attributes, such as color, nationality, drink, cigarette, and pet.
+
+    @details This function processes a list of solutions, printing each in a table format. For each solution, it:
+    - Displays the house arrangement with attributes in tabular format.
+    - Identifies the house where the zebra lives and the house where water is kept.
+    - Handles the case where no solution is found.
+
+    @return None
+    """
     result = []
     count = 0
 
     if len(solutions) == 0:
         result.append("No solution found.")
-        return "\n".join(result)
+        print("\n".join(result))
 
     for solution in solutions:
         count += 1
         result.append(f"Solution: {count}\n")
 
-        # Подготовка таблицы для вывода
+        # Prepare the table for output
         table = PrettyTable()
         table.field_names = ["House", "Color", "Nationality", "Drink", "Cigarette", "Pet"]
 
-        # Заполнение таблицы данными из решения
+        # Fill the table with data from the solution
         for i, house in enumerate(solution, start=1):
             table.add_row([
                 i,
@@ -73,11 +113,10 @@ def explain_solutions(solutions):
 
         result.append(table.get_string())
 
-        # Поиск домов с зеброй и водой
+        # Identify the house with the zebra and the house with water
         zebra_house = next(i + 1 for i, house in enumerate(solution) if house["pet"] == "zebra")
         water_house = next(i + 1 for i, house in enumerate(solution) if house["drink"] == "water")
         result.append(f"\nThe zebra lives in house {zebra_house}.")
         result.append(f"The house with water is number {water_house}.\n")
-
 
     print("\n".join(result))
